@@ -1,0 +1,67 @@
+Algoritmo ejercicioCooperativo
+	Definir usuario, contrasenia como Cadenas
+	Definir Login Como Logico
+	Definir intentos, op1, op2, cantBotellas, saldo, contador, peso, i Como Entero
+	intentos = 0
+	saldo = 0
+	contador = 0
+	Login = Falso
+	Hacer
+		Escribir "Ingrese usuario: "
+		Leer usuario
+		si usuario == "Albus_D" Entonces
+			Escribir "Usuario ingresado correctamente"
+			Mientras intentos < 4
+				intentos = intentos + 1
+				Escribir "Ingrese Contrasenia: "
+				Leer contrasenia
+				si contrasenia == "CaramelosDeLimon" Entonces
+					Escribir "contrasenia correcta"
+					intentos = 10
+					Hacer
+						Escribir "Ingrese una opcion: "
+						Escribir "1) Ingresar cantidad de botellas"
+						Escribir "2) Consultar saldo"
+						Escribir "3) Salir"
+						Leer op1
+						si op1 == 1 Entonces
+							Escribir "Ingrese cantidad de botellas: "
+							Leer cantBotellas
+							Para i = 1 Hasta cantBotellas
+								peso = Aleatorio(100, 3000)
+								si peso <= 500 Entonces
+									contador = contador + 50
+								SiNo
+									si peso <= 1500 Entonces
+										contador = contador + 125
+									SiNo
+										contador = contador + 200
+									FinSi
+								FinSi
+							FinPara
+							Escribir "El valor ofrecido por " cantBotellas " es de: " contador
+							Escribir "1) Aceptar"
+							Escribir "2) Rechazar"
+							Leer op2
+							Si op2 == 1 Entonces
+								saldo = contador
+								Escribir "Saldo acreditado..."
+							SiNo
+								Escribir "Devolviendo material..."
+							FinSi
+						SiNo
+							Si op1 == 2 Entonces
+								Escribir "Su saldo es de: " saldo
+							FinSi
+						FinSi
+					Mientras Que op1 <> 3
+					Login = Verdadero
+				SiNo
+					Escribir "contrasenia incorrecta, vuelva a intentarlo"
+				FinSi
+			FinMientras
+		SiNo
+			Escribir "Usuario incorrecto, vuelva a intentarlo"
+		FinSi
+	Mientras Que usuario <> "Albus_D"
+FinAlgoritmo

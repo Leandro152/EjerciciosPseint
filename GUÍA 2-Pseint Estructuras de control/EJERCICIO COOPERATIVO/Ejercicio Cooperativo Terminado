@@ -1,0 +1,66 @@
+Algoritmo nombre
+	definir usuario, contrasena, salir como cadena
+	definir login Como Logico
+	definir num, op, num_botellas,i, peso, sumador,op2,saldo como entero
+	num = 1
+	sumador=0
+	escribir " Ingrese su usuario " 
+	Leer usuario 	
+	si usuario = "Albus_D" Entonces
+		
+		escribir " Ingrese su Contraseña "
+		mientras (num <= 3)
+			num = num+1
+		    leer contrasena
+			si  (contrasena = "caramelosDeLimon") Entonces
+				login = verdadero 
+				escribir " Su usuario y contraseña es correcto "
+				hacer
+					escribir "1 Ingresar Botellas "
+					escribir "2  Consultar Saldo "
+					escribir "3 Salir "
+					leer op
+					segun (op)
+						1: escribir " Ingrese cantidad de botellas "
+							leer num_botellas
+							para i desde 1 hasta num_botellas 
+								
+								peso= Aleatorio(100,3000)
+								si (peso <= 500) entonces
+									sumador=sumador+ 50 
+								SiNo
+									si(peso>=501 y peso<=1500) Entonces
+										sumador=sumador+125
+									SiNo
+										si(peso>=1501) Entonces
+											sumador=sumador+200
+										FinSi
+									FinSi
+								FinSi
+							FinPara
+							escribir " el total por las " num_botellas " es " sumador
+							escribir " Desea aceptar o rechazar "
+							Escribir "1 Aceptar "
+							escribir "2 Rechazar "
+							leer op2
+							si(op2 == 1) entonces
+								saldo=sumador
+							SiNo
+								escribir " devolviendo material "
+							FinSi
+						2:
+							escribir" el saldo es " saldo
+						3: 
+						escribir " saliendo.... " 
+					FinSegun
+				Mientras Que  (op<>3)
+			sino 
+				escribir " ingrese nuevamente su contraseña " 
+				escribir " contraseña mal ingresada " 
+			FinSi
+		FinMientras
+		sino 
+		escribir " Usuario mal ingresado " 
+	FinSi
+	
+FinAlgoritmo
